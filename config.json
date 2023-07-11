@@ -1,0 +1,114 @@
+{
+	"discord": {
+		"token": "REDACTED",
+		"modules": [
+			"admin",
+			"base.user_frag",
+			"managed_cat",
+			"roll",
+			"dad",
+			"clacks",
+			"misc",
+			"starboard",
+			"linker"
+		]
+	},
+	"dad": {
+		"decay": 5.0,
+		"subs": [
+			{
+				"pattern": "^i(?:'|\\s+a|)m((?:\\s+[-A-Za-z0-9']+)+)",
+				"replacements": [
+					"Hi {1}, I'm Dad!",
+					"You're not {1}, you're {message.author.display_name}!",
+					"No, you're {message.author.display_name}!"
+				]
+			},
+			{
+				"pattern": "^it'?s\\s*((?:\\s+[-A-Za-z0-9']+)+)",
+				"replacements": [
+					"No, you're {1}!"
+				]
+			},
+			{
+				"pattern": "\\b(die|kill|kys)\\b",
+				"replacements": [
+					":dagger:",
+					":knife:",
+					":dagger: :knife:",
+					":knife: :dagger:"
+				]
+			},
+			{
+				"pattern": "\\bwhat\\s*is\\s*((?:\\s+[-A-Za-z0-9']+)+)",
+				"replacements": [
+					"`{1}: nothing appropriate`"
+				]
+			},
+			{
+				"pattern": "^haha$",
+				"replacements": [
+					"lol"
+				]
+			},
+			{
+				"pattern": "🐸\\s*☁\\s*🏂",
+				"replacements": [
+					":frog: :cloud: :snowboarder:"
+				]
+			},
+			{
+				"pattern": "☁",
+				"replacements": [
+					":snowboarder:"
+				]
+			},
+			{
+				"pattern": "🐸",
+				"replacements": [
+					":cloud:"
+				]
+			}
+		]
+	},
+	"sql": {
+		"path": "srv.0.db"
+	},
+	"strings": {
+		"clacks": ""
+	},
+	"logging": {
+		"version": 1,
+		"disable_existing_loggers": false,
+		"formatters": {
+			"standard": {
+				"format": "%(levelname)-8s %(name)-15s: %(message)s",
+				"datefmt": "%d/%m %H:%M:%S"
+			}
+		},
+		"handlers": {
+			"default": {
+				"level": "INFO",
+				"formatter": "standard",
+				"class": "logging.StreamHandler"
+			}
+		},
+		"loggers": {
+			"discord": {
+				"handlers": ["default"],
+				"level": "INFO",
+				"propagate": false
+			},
+			"websockets": {
+				"handlers": ["default"],
+				"level": "INFO",
+				"propagate": false
+			},
+			"": {
+				"handlers": ["default"],
+				"level": "INFO",
+				"propagate": false
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+[Unit]
+Description=Blender discord bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/home/tim/blender/client.py
+ExecReload=/bin/kill -USR1 $MAINPID
+WorkingDirectory=/home/tim/blender
+Restart=always
+
+[Install]
+WantedBy=default.target
+
